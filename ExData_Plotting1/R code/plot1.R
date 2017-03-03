@@ -12,32 +12,29 @@ data<-data[which(data$Date=="1/2/2007"|data$Date=="2/2/2007"),]
 # cast the numerical data here since R seems incapable of reading numerics directly
 {
         ## household global minute-averaged active power (in kilowatt)
-        data$Global_active_power<-as.numeric(data$Global_active_power)
+        data$Global_active_power<-as.numeric(paste(data$Global_active_power))
         
         ## household global minute-averaged reactive power (in kilowatt)
-        data$Global_reactive_power<-as.numeric(data$Global_reactive_power)
+        data$Global_reactive_power<-as.numeric(paste(data$Global_reactive_power))
         
         ## minute-averaged voltage (in volt)
-        data$Voltage<-as.numeric(data$Voltage)
+        data$Voltage<-as.numeric(paste(data$Voltage))
         
         ## household global minute-averaged current intensity (in ampere)
-        data$Global_intensity<-as.numeric(data$Global_intensity)
+        data$Global_intensity<-as.numeric(paste(data$Global_intensity))
         
         ## energy sub-metering No. 1 (in watt-hour of active energy)
-        data$Sub_metering_1<-as.numeric(data$Sub_metering_1)
+        data$Sub_metering_1<-as.numeric(paste(data$Sub_metering_1))
         
         ## Sub_metering_2: energy sub-metering No. 2 (in watt-hour of active energy)
-        data$Sub_metering_2<-as.numeric(data$Sub_metering_2)
+        data$Sub_metering_2<-as.numeric(paste(data$Sub_metering_2))
         
         ## energy sub-metering No. 3 (in watt-hour of active energy)
-        data$Sub_metering_3<-as.numeric(data$Sub_metering_3)
+        data$Sub_metering_3<-as.numeric(paste(data$Sub_metering_3))
 }
 
 
-# convert Time and Date (can't do this as POSIXlt is a list object)
-# sapply(data$Time,strptime,format="%H:%M:%S")
-
-png("..\\figure\\plot1.png",width = 480, height = 480, units = "px")
+png("..\\figure\\plot1.png")
 hist(
         data$Global_active_power,
         main = "Global Active Power",
@@ -47,5 +44,3 @@ hist(
 )
 dev.off()
 
-summary(data$Global_active_power)
-warning("Note to self: numbers are out by factor of 5e2")
