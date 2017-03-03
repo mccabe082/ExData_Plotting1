@@ -47,7 +47,6 @@ par(mfrow=c(2,2))
 plot(
         x = data$t,
         xlab = "",
-        xaxt = "n",
         y = data$Global_active_power,
         ylab = "Global Active Power (kilowatts)",
         type="l"
@@ -62,7 +61,6 @@ axis(
 plot(
         x = data$t,
         xlab = "datetime",
-        xaxt = "n",
         y = data$Voltage,
         ylab = "Voltage",
         type="l"
@@ -70,7 +68,6 @@ plot(
 
 plot(
         x = data$t,
-        xaxt="n",
         y = data$Sub_metering_1,
         ylab = "Energy sub metering",
         type="l"
@@ -96,7 +93,6 @@ legend(
 plot(
         x = data$t,
         xlab = "datetime",
-        xaxt = "n",
         y = data$Global_reactive_power,
         ylab = "Global_reactive_power",
         type="l"
